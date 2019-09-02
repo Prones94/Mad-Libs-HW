@@ -2,9 +2,20 @@ nouns = []
 verbs = []
 adj = []
 def list_all_nouns():
-    index = 0
     for index in nouns:
         print(index)
+def list_all_verbs():
+    for index in verbs:
+        print(index)
+def list_all_adj():
+    for index in adj:
+        print(index)
+def user_Input(prompt):
+    user_Input = input(prompt)
+    return user_Input
+def user_Input(select_letter):
+    if select_letter == 'N':
+        list_all_nouns()
 # Function that prints story
 def first_story():
     r_number = input('Enter a number: ')
@@ -42,5 +53,9 @@ def first_story():
     print(story)
 #print("Hi welcome to my Mad Libs project. After you finish the story you have the option to replace, add, or remove certain words to make the story more interesting. Ready? Here we go!\n")
 first_story()
-#print('A to add a word to the story, L to list the nouns, verbs, or adj used in the story.')
+start_story = True
+while start_story:
+    user_Input = input('N to list all the nouns, A for all adj, V to list all the verbs. Type Q to quit program')
+    start_story = select(user_Input)
+print('A to add a word to the story, L to list the nouns, verbs, or adj used in the story.')
 list_all_nouns()
