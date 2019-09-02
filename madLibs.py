@@ -20,18 +20,23 @@ def user_Input(prompt):
 def select(select_letter):
     if select_letter == 'N':
         list_all_nouns()
+        print(Back.GREEN + Fore.BLACK + 'Lets play again!' + Fore.RESET + Back.RESET + '\n')
         return True
     elif select_letter == 'A':
         list_all_adj()
+        print(Back.GREEN + Fore.BLACK + 'Lets play again!' + Fore.RESET + Back.RESET + '\n')
         return True
     elif select_letter == 'V':
         list_all_verbs()
+        print(Back.GREEN + Fore.BLACK + 'Lets play again!' + Fore.RESET + Back.RESET + '\n')
         return True
     elif select_letter == 'Q':
         return False
     else:
-        print('Not an option, try again:')
-        return True
+        print(Fore.MAGENTA + 'Not an option, try again:' + Fore.RESET)
+        user_Input = input(Fore.BLUE + '\nN to list all the nouns, A for all adj, V to list all the verbs. Type Q to quit program ' + Fore.RESET)
+        select(user_Input)
+        
     return True
 # Function that prints story
 def first_story():
@@ -54,9 +59,9 @@ def first_story():
     verbs.append(s_verb)
     f_adj = input(Fore.CYAN + 'Enter an adj: ' + Fore.RESET)
     adj.append(f_adj)
-    s_adj = input(Fore.CYAN + 'One more adj: \n' + Fore.RESET)
+    s_adj = input(Fore.CYAN + 'One more adj: ' + Fore.RESET)
     adj.append(s_adj)
-    story = (
+    story = (Fore.LIGHTMAGENTA_EX + '\n'
         f'A vacation is when you take a trip to some {f_adj} place. '
         f'Usually you go to some place that is near a/an {f_noun}. '
         f'A good vacation place is one where you can ride {p_noun} or play {r_sport}. \n'
@@ -66,11 +71,12 @@ def first_story():
         f'{s_noun} and got poison oak all over his {p_body}. My family is going to {cool_location}, and I will '
         f'practice {r_sport}. \nParents need vacations more than kids because parents are always {s_adj} and because '
         f'they have to work {r_number} hours every day all year making enough money.'
-    )
+     + Fore.RESET)
     print(story)
 print(Back.YELLOW + Fore.BLACK + "Hi! Welcome to my Mad Libs project. After you finish the story you have the option to replace, add, or remove certain words to make the story more interesting. Ready? Here we go!" + Fore.RESET + Back.RESET + '\n')
-first_story()
+# first_story()
 start= True
 while start:
+    first_story()
     user_Input = input(Fore.BLUE + '\nN to list all the nouns, A for all adj, V to list all the verbs. Type Q to quit program ' + Fore.RESET)
     start = select(user_Input)
